@@ -1,6 +1,8 @@
 # Astro Tailwind Starter til at lave fede og flotte websites
 
-Clone github repo'et i VSCode
+Clone github repo'et i VSCode eller lav et nyt repo på basis af templaten, og klon derfra
+
+Åbn terminalen og kør:
 
 ```sh
 npm install
