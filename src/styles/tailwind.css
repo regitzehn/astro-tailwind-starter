@@ -4,6 +4,10 @@
 @plugin '@tailwindcss/forms';
 
 
+@theme {
+  /* Her tilføjes theme variable // tokens */
+}
+
 @layer base {
   *,
   ::after,
@@ -14,9 +18,6 @@
   }
 }
 
-@layer base{
-
-}
 @layer components{
 
 }
