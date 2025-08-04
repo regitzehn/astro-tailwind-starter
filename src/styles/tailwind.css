@@ -3,7 +3,7 @@
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
 @import "tailwindcss-animated";
-
+@import "tailwindcss-intersect";
 
 @theme {
   /* Her tilføjes theme variable // tokens */
