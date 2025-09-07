@@ -2,7 +2,7 @@
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 
-import logoImg from "./../assets/images/rlogo.png";
+import logoImg from "/images/rlogo.png";
 ---
 
 <header x-data="{ showmenu: false }" class="fixed w-full p-2 bg-white/50 z-50">
