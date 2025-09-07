@@ -18,27 +18,20 @@ import Text from "../components/Text.astro";
     </section>
 
     <section id="section1" class="bg-[var(--color-beige)] flex justify-center items-center h-screen relative pt-10 md:pt-20">
-      <!-- flip card wrapper -->
       <div class="h-90 w-115 md:w-115 md:h-90 cursor-pointer transform transition-transform duration-700 ease-in-out hover:scale-110" style="perspective:1000px;" onclick="toggleFlip(this)">
         <div class="relative w-full h-full" style="transform-style: preserve-3d;">
-          <!-- front -->
           <div class="absolute w-full h-full rounded-xl overflow-hidden" style="backface-visibility: hidden;">
-            <img src="/src/assets/images/front.png" alt="Front" class="w-full h-full object-cover" />
+            <img src="/images/front.png" alt="Front" class="w-full h-full object-cover" />
           </div>
-
-          <!-- back -->
           <div class="absolute w-full h-full rounded-xl overflow-hidden" style="backface-visibility: hidden; transform: rotateY(180deg);">
-            <img src="/src/assets/images/back.png" alt="Back" class="w-full h-full object-cover" />
+            <img src="/images/back.png" alt="Back" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>
 
-      <!-- mit navn opdelt -->
-      <img src="/src/assets/images/regitzetxt.svg" alt="Regitze" class="absolute top-[18%] md:top-[16%] md:-translate-y-16 left-[20%] w-[40%] z-10 pointer-events-none" />
-
-      <img src="/src/assets/images/holmtxt.svg" alt="Holm" class="absolute top-[33%] right-[6%] w-[35%] z-10 pointer-events-none" />
-
-      <img src="/src/assets/images/nykjaertxt.svg" alt="Nykjær" class="absolute bottom-[12%] md:bottom-[1%] left-[30%] w-[40%] z-10 pointer-events-none" />
+      <img src="/images/regitzetxt.svg" alt="Regitze" class="absolute top-[18%] md:top-[16%] md:-translate-y-16 left-[20%] w-[40%] z-10 pointer-events-none" />
+      <img src="/images/holmtxt.svg" alt="Holm" class="absolute top-[33%] right-[6%] w-[35%] z-10 pointer-events-none" />
+      <img src="/images/nykjaertxt.svg" alt="Nykjær" class="absolute bottom-[12%] md:bottom-[1%] left-[30%] w-[40%] z-10 pointer-events-none" />
 
       <script type="text/javascript">
         let flipped = false;
@@ -57,33 +50,23 @@ import Text from "../components/Text.astro";
       </script>
     </section>
 
-    <!-- SVG overlays (valgfrit) -->
-
     <section id="section2" class="bg-[var(--color-rose)] min-h-screen flex flex-col justify-center items-center">
-      <div
-        class="relative w-full min-h-[300px] md:min-h-[200px] md:mt-10 flex justify-center items-center bg-no-repeat bg-center bg-contain"
-        style="background-image: url('/src/assets/images/skyggen.svg');"
-      >
+      <div class="relative w-full min-h-[300px] md:min-h-[200px] md:mt-10 flex justify-center items-center bg-no-repeat bg-center bg-contain" style="background-image: url('/images/skyggen.svg');">
         <Heading htmlheading="h2" size="large" font="gruppo" class="relative z-10">Where New Meets Care</Heading>
       </div>
       <div class="relative w-full max-w-5xl h-[500px] flex justify-center">
-        <!-- Lemonpie -->
         <img
-          src="src/assets/images/lemonpie.webp"
+          src="/images/lemonpie.webp"
           alt="lemonpie"
           class="absolute top-[-15%] left-[0%] md:left-[12%] md:top-[-10%] w-100 sm:w-110 h-auto object-contain rotate-[-8deg] transform transition-all duration-300 hover:scale-120"
         />
-
-        <!-- Collage 1 -->
         <img
-          src="src/assets/images/collage1.webp"
+          src="/images/collage1.webp"
           alt="collage"
           class="absolute top-[-8%] left-[50%] md:left-[60%] w-64 sm:w-80 h-auto object-contain rotate-[5deg] transform transition-all duration-300 hover:scale-130"
         />
-
-        <!-- Collage 2 -->
         <img
-          src="src/assets/images/collage2.webp"
+          src="/images/collage2.webp"
           alt="collage"
           class="absolute top-[25%] md:top-[10%] w-64 sm:w-80 h-auto object-contain rotate-[-4deg] transform transition-all duration-300 hover:scale-120"
         />
