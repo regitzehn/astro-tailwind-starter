@@ -1,6 +1,20 @@
 ---
+import logoImg from "./src/assets/images/rlogo.png";
 ---
-<div>
-<p>Footer - tilføj footerindhold</p>
-</div>
-  
+
+<footer class="bg-white/40 backdrop-blur-lg z-50 mt-8">
+  <div class="container mx-auto p-6 flex flex-col lg:flex-row justify-between items-center">
+    <div class="text-sm mt-4 lg:mt-0 text-center font-quantico">
+      &copy; {new Date().getFullYear()} Regitze Holm Nykjær
+    </div>
+
+    <a href="/">
+      <img src={logoImg.src} alt="Regitzes Logo" class="h-auto w-20 opacity-50 md:mr-16 mt-4" />
+    </a>
+
+    <nav class="flex flex-col lg:flex-row gap-4 mt-4 text-center">
+      <a href="https://www.linkedin.com/in/regitzenykjaer/" target="_blank" class="italic hover:font-bold">linkedin</a>
+      <a href="https://open.spotify.com/user/regi11111?si=2ee08d4797e749e8" target="_blank" class="italic hover:font-bold">spotify</a>
+    </nav>
+  </div>
+</footer>

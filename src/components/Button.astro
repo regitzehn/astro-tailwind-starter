@@ -1,5 +1,24 @@
 ---
+// Henter parametrene fra Astro.props
+const { variant = "primary", size = "medium" } = Astro.props;
+
+//Definer den styling (Tailwind classes, der gør sig gældende for alle knapper)
+const buttonStyling = "px-4 font-gruppo text-[var(--color-green)] cursor-pointer select-none";
+
+//Definer den styling (Tailwind classes), der gør sig gældende for de forskellige varianter
+const variantClasses = {
+  standard: "bg-white/40 backdrop-blur-lg rounded-2xl shadow-lg py-3 transition-colors duration-400 ease-in-out hover:bg-[var(--color-rose)] transition-all duration-[700ms] ease-in-out ",
+  neumorph:
+    "bg-[var(--color-beige)] text-black rounded-2xl py-3 shadow-[5px_6px_10px_#d1cdc4,_-2px_-6px_16px_#ffffff] hover:shadow-[inset_6px_6px_12px_#d1cdc4,_inset_-6px_-6px_12px_#ffffff] hover:scale-105 transition-all duration-[700ms] ease-in-out",
+};
+
+//Definer den styling (Tailwind classes), der gør sig gældende for de forskelligeog størrelser.
+const sizeClasses = {
+  large: "text-2xl",
+  medium: "text-xl",
+  small: "text-large",
+};
 ---
-<div>
-    <button class="border-2 border-black"><slot /></button>
-</div>
+
+<!--Sæt classes for den pågældende knap sammen ved hjælp af Astros class:list -->
+<button class:list={[buttonStyling, variantClasses[variant], sizeClasses[size]]}><slot /></button>

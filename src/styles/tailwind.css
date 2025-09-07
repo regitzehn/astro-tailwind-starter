@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-
+@import url("https://fonts.googleapis.com/css2?family=Gruppo&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import "tailwindcss";
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
 @import "tailwindcss-animated";
@@ -7,6 +7,13 @@
 
 @theme {
   /* Her tilføjes theme variable // tokens */
+  --color-beige: #eeeadf;
+  --color-rose: #eecfcf;
+  --color-green: #4e5146;
+
+  /* Fonts */
+  --font-quantico: "Quantico", sans-serif;
+  --font-gruppo: "Gruppo", sans-serif;
 }
 
 @layer base {
@@ -19,9 +26,80 @@
   }
 }
 
-@layer components{
-
+@layer components {
 }
-@layer utilities{
-  
+@layer utilities {
+  /* Flip fra front til back */
+  .flip-vertical-left {
+    animation: flip-vertical-left 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+      forwards;
+  }
+
+  @keyframes flip-vertical-left {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(180deg);
+    }
+  }
+
+  /* Flip fra back til front */
+  .flip-vertical-right {
+    animation: flip-vertical-right 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+      forwards;
+  }
+
+  @keyframes flip-vertical-right {
+    0% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
+
+  .tracking-in-expand {
+    -webkit-animation: tracking-in-expand 0.7s
+      cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  }
+
+  @-webkit-keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .text-blur-out:hover {
+    animation: text-blur-out 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+
+  @keyframes text-blur-out {
+    0% {
+      filter: blur(0.01);
+    }
+    100% {
+      filter: blur(12px) opacity(0);
+    }
+  }
 }

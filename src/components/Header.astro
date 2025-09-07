@@ -1,5 +1,40 @@
 ---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+
+import logoImg from "./../assets/images/rlogo.png";
 ---
-<div>
-Header - tilføj navigation mm.
-</div>
+
+<header x-data="{ showmenu: false }" class="fixed w-full p-2 bg-white/50 z-50">
+  <div id="navbar" class="container mx-auto flex flex-row justify-between items-center">
+    <div id="logo" class="transition-transform duration-900 hover:rotate-[360deg]">
+      <a href="#section0">
+        <img src={logoImg.src} alt="Regitzes Logo" class="h-12 w-auto sm:h-14" />
+      </a>
+    </div>
+
+    <!-- Desktop menu -->
+    <nav id="desktopmenu" class="hidden lg:block">
+      <ul class="flex flex-row gap-6 font-quantico tracking-in-expand animate-duration-[5500ms]">
+        <li><a href="#section1" class="italic hover:font-bold text-blur-out">Regitze Holm Nykjær</a></li>
+        <li><a href="#section2" class="italic hover:font-bold text-blur-out">Where New Meets Care</a></li>
+        <li><a href="#section3" class="italic hover:font-bold text-blur-out">Mit univers</a></li>
+      </ul>
+    </nav>
+
+    <!-- Burger menu knap (mobil) -->
+    <button id="burgermenu" class="lg:hidden p-2 rounded-md border border-gray-300 hover:bg-gray-100 transition" x-on:click="showmenu = !showmenu" aria-label="Åbn/luk menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+    </button>
+  </div>
+
+  <nav x-show="showmenu" x-transition class="lg:hidden flex flex-col shadow-md z-40 tracking-in-expand animate-duration-[5500ms]">
+    <ul class="py-2">
+      <li class="text-center py-2 bg-white/50 backdrop-blur-sm"><a href="#section1" class="italic hover:font-bold">Regitze Holm Nykjær</a></li>
+      <li class="text-center py-2 bg-white/50 backdrop-blur-sm"><a href="#section2" class="italic hover:font-bold">Where New Meets Care</a></li>
+      <li class="text-center py-2 bg-white/50 backdrop-blur-sm"><a href="#section3" class="italic hover:font-bold">Mit univers</a></li>
+    </ul>
+  </nav>
+</header>

@@ -1,15 +1,116 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Button from '../components/Button.astro';
-import Link from '../components/Link.astro';
-import { Image } from 'astro:assets';
-import thumbsup from "../assets/images/thumbsup.png";
+import Button from "../components/Button.astro";
+import Heading from "../components/Heading.astro";
+import Text from "../components/Text.astro";
+import Link from "../components/Link.astro";
+import { Image } from "astro:assets";
 ---
-<MainLayout title="Titel">
-	<article>
-		<h1>Index overskrift</h1>
-		<Button>Klik!</Button>
-		<p>Link til <Link href="https://www.kea.dk" target="_blank">En anden side</Link></p>
-		<Image src={thumbsup} alt=""></Image>
-	</article>
+
+<MainLayout title="Regitzes Visitkort">
+  <main>
+    <section id="section0" class="relative min-h-screen flex flex-col items-center justify-center bg-[url('/src/assets/images/blomstp.webp')] bg-center bg-cover">
+      <div class="bg-white/40 backdrop-blur-lg rounded-2xl shadow-lg px-6 py-4 md:py-6 max-w-xl text-center">
+        <div class="">
+          <Text teksttype="brødtekst">
+            HJÆLP! jeg er en fynbo / vintage-shopper / vandmand / højlydt-griner / vegetar / klippe-klistre-mester / forret-over-dessert-fan fanget i en multimediedesigner!
+          </Text>
+        </div>
+      </div>
+    </section>
+
+    <section id="section1" class="bg-[var(--color-beige)] flex justify-center items-center h-screen relative pt-10 md:pt-20">
+      <!-- flip card wrapper -->
+      <div class="h-90 w-115 md:w-115 md:h-90 cursor-pointer transform transition-transform duration-700 ease-in-out hover:scale-110" style="perspective:1000px;" onclick="toggleFlip(this)">
+        <div class="relative w-full h-full" style="transform-style: preserve-3d;">
+          <!-- front -->
+          <div class="absolute w-full h-full rounded-xl overflow-hidden" style="backface-visibility: hidden;">
+            <img src="/src/assets/images/front.png" alt="Front" class="w-full h-full object-cover" />
+          </div>
+
+          <!-- back -->
+          <div class="absolute w-full h-full rounded-xl overflow-hidden" style="backface-visibility: hidden; transform: rotateY(180deg);">
+            <img src="/src/assets/images/back.png" alt="Back" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+
+      <!-- mit navn opdelt -->
+      <img src="/src/assets/images/regitzetxt.svg" alt="Regitze" class="absolute top-[18%] md:top-[16%] md:-translate-y-16 left-[20%] w-[40%] z-10 pointer-events-none" />
+
+      <img src="/src/assets/images/holmtxt.svg" alt="Holm" class="absolute top-[33%] right-[6%] w-[35%] z-10 pointer-events-none" />
+
+      <img src="/src/assets/images/nykjaertxt.svg" alt="Nykjær" class="absolute bottom-[12%] md:bottom-[1%] left-[30%] w-[40%] z-10 pointer-events-none" />
+
+      <script type="text/javascript">
+        let flipped = false;
+        function toggleFlip(card) {
+          const inner = card.querySelector("div");
+          if (!flipped) {
+            inner.classList.remove("flip-vertical-right");
+            inner.classList.add("flip-vertical-left");
+            flipped = true;
+          } else {
+            inner.classList.remove("flip-vertical-left");
+            inner.classList.add("flip-vertical-right");
+            flipped = false;
+          }
+        }
+      </script>
+    </section>
+
+    <!-- SVG overlays (valgfrit) -->
+
+    <section id="section2" class="bg-[var(--color-rose)] min-h-screen flex flex-col justify-center items-center">
+      <div
+        class="relative w-full min-h-[300px] md:min-h-[200px] md:mt-10 flex justify-center items-center bg-no-repeat bg-center bg-contain"
+        style="background-image: url('/src/assets/images/skyggen.svg');"
+      >
+        <Heading htmlheading="h2" size="large" font="gruppo" class="relative z-10">Where New Meets Care</Heading>
+      </div>
+      <div class="relative w-full max-w-5xl h-[500px] flex justify-center">
+        <!-- Lemonpie -->
+        <img
+          src="src/assets/images/lemonpie.webp"
+          alt="lemonpie"
+          class="absolute top-[-15%] left-[0%] md:left-[12%] md:top-[-10%] w-100 sm:w-110 h-auto object-contain rotate-[-8deg] transform transition-all duration-300 hover:scale-120"
+        />
+
+        <!-- Collage 1 -->
+        <img
+          src="src/assets/images/collage1.webp"
+          alt="collage"
+          class="absolute top-[-8%] left-[50%] md:left-[60%] w-64 sm:w-80 h-auto object-contain rotate-[5deg] transform transition-all duration-300 hover:scale-130"
+        />
+
+        <!-- Collage 2 -->
+        <img
+          src="src/assets/images/collage2.webp"
+          alt="collage"
+          class="absolute top-[25%] md:top-[10%] w-64 sm:w-80 h-auto object-contain rotate-[-4deg] transform transition-all duration-300 hover:scale-120"
+        />
+      </div>
+    </section>
+
+    <section id="section3" class="bg-beige h-screen flex flex-col gap-6 justify-center items-center">
+      <div class="text-center intersect:animate-fade-down animate-duration-[2200ms]">
+        <div class="mb-4">
+          <Heading htmlheading="h2" size="large" font="gruppo">Mit univers</Heading>
+        </div>
+        <div class="mb-8 intersect:animate-fade-down animate-duration-[2200ms]">
+          <Text teksttype="brødtekst">Mit digitale visitkort afspejler mine designvalg som designer, kunstner og æstetiker – både i det analoge og i det digitale.</Text>
+        </div>
+        <div class="mb-4 intersect:animate-fade-down animate-duration-[2600ms]">
+          <Text teksttype="brødtekst"
+            >Jeg elsker at udfolde mig kreativt i begge verdener og finder ofte inspiration i mit farverige hjem og garderobe samt gennem popkultur, musik og Y2K-æstetik.</Text
+          >
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="https://pin.it/6KoGZi0OR" target="_blank">
+          <Button variant="neumorph" size="medium"> Mit Pinterest-univers </Button>
+        </a>
+      </div>
+    </section>
+  </main>
 </MainLayout>
